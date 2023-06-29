@@ -14,7 +14,7 @@ public class IndexModel : PageModel
         _logger = logger;
         _config = config;
     }
-
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public void OnGet()
     {
         this.EnvironmentName = _config["ASPNETCORE_ENVIRONMENT"];
