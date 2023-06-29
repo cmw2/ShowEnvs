@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ShowEnvs.Pages;
 
+[ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
 public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
@@ -14,7 +15,7 @@ public class IndexModel : PageModel
         _logger = logger;
         _config = config;
     }
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    
     public void OnGet()
     {
         this.EnvironmentName = _config["ASPNETCORE_ENVIRONMENT"];
